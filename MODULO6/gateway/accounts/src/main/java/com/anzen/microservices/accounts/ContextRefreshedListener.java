@@ -21,9 +21,7 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
     }
 
     @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        System.out.println("Context Event Received");
-        
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {               
         HashMap<Integer, List<Accounts>> globalAccounts = new HashMap<Integer, List<Accounts>>();
         
         for (int i = 0; i < 5; i++){
@@ -34,14 +32,6 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
         	accounts.add(new Accounts("555555" + i));
         	
         	globalAccounts.put(i + 1, accounts);
-        }
-        
-        accountBean.setCutomerAccounts(globalAccounts);
-        
-        for (List<Accounts> customerAccounts : accountBean.getCutomerAccounts().values()){        	        	
-        	for (Accounts accounts : customerAccounts){
-        		System.out.println(accounts.getNumber());
-        	}
-        }
+        }        
     }
 }

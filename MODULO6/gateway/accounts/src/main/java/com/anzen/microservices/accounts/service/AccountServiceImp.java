@@ -1,21 +1,23 @@
 package com.anzen.microservices.accounts.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
 
+import com.anzen.microservices.accounts.AccountBean;
 import com.anzen.microservices.accounts.model.Accounts;
 
+@Service
 public class AccountServiceImp implements AccountService {
+	@Autowired
+	private ApplicationContext context;
+	
 	@Override
 	public List<Accounts> GetAccounts(int id){
-		List<Accounts> accounts = new ArrayList<Accounts>();
-		
-		ConfigurableApplicationContext ctx = SpringApplication.run(ContextRefresehedApplication.class, args);
-        EventHolderBean bean = ctx.getBean(AccountBean.class);
-		
-		return accounts;
+        AccountBean bean = context.getBean(AccountBean.class);
+        
+		return bean.getCutomerAccounts().get(id);
 	}
 }
