@@ -11,7 +11,7 @@ import com.anzen.microservices.accounts.AccountBean;
 import com.anzen.microservices.accounts.model.Accounts;
 
 @Service
-public class AccountServiceImp implements AccountService {
+public class AccountsServiceImp implements AccountsService {
 	@Autowired
 	private ApplicationContext context;
 	
@@ -28,5 +28,12 @@ public class AccountServiceImp implements AccountService {
         }
         
 		return accounts;
+	}
+	
+	@Override
+	public List<Accounts> GetCustomerAccounts(int id){
+		AccountBean bean = context.getBean(AccountBean.class);
+		
+		return bean.getCutomerAccounts().get(id);
 	}
 }

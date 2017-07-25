@@ -16,8 +16,8 @@ public class AccountsController {
 	@Autowired
 	private AccountService accountService;
 	
-	@RequestMapping(value="/accounts/{id}", method=RequestMethod.GET)
-	public List<Accounts> getAll(@PathVariable int id){
-		return accountService.GetAccounts(id);
+	@RequestMapping(value="/accounts", method=RequestMethod.GET)
+	public List<Accounts> getAccounts(){
+		return accountService.GetAccounts();
 	}
 }
