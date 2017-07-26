@@ -5,6 +5,7 @@ import java.util.List;
 import com.anzen.microservices.accounts.model.Accounts;
 
 
-public interface AccountService {
+public interface AccountsService {
 	public List<Accounts> GetAccounts();
+	public List<Accounts> GetCustomerAccounts(int id);
 }

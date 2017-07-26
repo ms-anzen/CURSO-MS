@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anzen.microservices.accounts.model.Accounts;
-import com.anzen.microservices.accounts.service.AccountService;
+import com.anzen.microservices.accounts.service.AccountsService;
 
 @RestController
 public class AccountsController {
 	@Autowired
-	private AccountService accountService;
+	private AccountsService accountsService;
 	
 	@RequestMapping(value="/accounts", method=RequestMethod.GET)
-	public List<Accounts> getAccounts(){
-		return accountService.GetAccounts();
+	public List<Accounts> GetAccounts(){
+		return accountsService.GetAccounts();
+	}
+	
+	@RequestMapping(value="/accounts/{id}", method=RequestMethod.GET)
+	public List<Accounts> GetCustomerAccounts(@PathVariable int id){
+		return accountsService.GetCustomerAccounts(id);
 	}
 }

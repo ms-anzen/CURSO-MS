@@ -1,0 +1,8 @@
+zuul:
+  routes:
+    accounts:
+      path: /accounts/**
+      url: http://localhost:9090/accounts
+    customers:
+      path: /customers/**
+      url: http://localhost:9091/customers

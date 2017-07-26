@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anzen.microservices.customers.client.AccountsClient;
-import com.anzen.microservices.customers.model.Accounts;
 import com.anzen.microservices.customers.model.Customer;
 import com.anzen.microservices.customers.service.CustomerService;
 
@@ -17,9 +15,6 @@ import com.anzen.microservices.customers.service.CustomerService;
 public class CustomersController {
 	@Autowired
 	private CustomerService customerService;
-	
-	@Autowired
-	private AccountsClient accountsClient;
 	
 	@RequestMapping(value="/customers", method=RequestMethod.GET)
 	public List<Customer> getCustomers(){
@@ -29,10 +24,5 @@ public class CustomersController {
 	@RequestMapping(value="/customers/{id}", method=RequestMethod.GET)
 	public Customer getCustomer(@PathVariable int id) {
 		return customerService.getCustomer(id);
-	}
-	
-	@RequestMapping(value="/customers/accounts", method=RequestMethod.GET)
-	public List<Accounts> GetAccounts(){
-		return accountsClient.getAccounts();
 	}
 }

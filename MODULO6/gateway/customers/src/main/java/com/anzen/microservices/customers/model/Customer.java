@@ -4,17 +4,9 @@ public class Customer {
 	private int id;
 	private String name;
 	
-	private Accounts accounts;
-	
 	public Customer(int id, String name) {
 		this.id = id;
 		this.name = name;
-	}
-	
-	public Customer(int id, String name, Accounts accounts) {
-		this.id = id;
-		this.name = name;
-		this.accounts = accounts;
 	}
 	
 	public int getId() {
@@ -32,12 +24,4 @@ public class Customer {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Accounts getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(Accounts accounts) {
-		this.accounts = accounts;
-	}			
 }
