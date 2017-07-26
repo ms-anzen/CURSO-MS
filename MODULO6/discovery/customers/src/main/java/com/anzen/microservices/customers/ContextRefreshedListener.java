@@ -30,10 +30,6 @@ public class ContextRefreshedListener implements ApplicationListener<ContextRefr
         globalCustomers.add(new Customer(4, "sandia"));
         globalCustomers.add(new Customer(5, "sandra"));
         
-        customersBean.setCustomer(globalCustomers);
-        
-        for (Customer c : customersBean.getCustomer()) {
-        	System.out.println(c.getId() + " - " + c.getName());
-        }
+        customersBean.setCustomer(globalCustomers);        
     }
 }

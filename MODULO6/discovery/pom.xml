@@ -10,9 +10,10 @@
 	<name>discovery</name>
 
 	<modules>
-		<module>register</module>
+		<module>registry</module>
 		<module>accounts</module>
 		<module>customers</module>
+		<module>api-gateway</module>
 	</modules>
 
 </project>
