@@ -1,0 +1,13 @@
+server:
+  port: 0
+spring:
+  application:
+    name: account-service
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    registry-fetch-interval-seconds: 5
+  instance:
+    preferIpAddress: true
